@@ -1277,3 +1277,29 @@ root.render(<Clicker />);
 ## Reactivity
 
 A component's properties and state are used by the React framework to determine the reactivity of the interface. Reactivity controls how a component reacts to actions taken by the user or events that happen within the application. Whenever a component's state or properties change, the render function for the component and all of its dependent component render functions are called.
+
+
+
+##Personal Compenent notes
+
+What component will the URL '/burger' render? Answer: lard
+
+```js
+<BrowserRouter>
+  <div className='app>
+    <nav>
+      <NavLink to='/'>A</NavLink>
+      <NavLink to='/burger'>C</NavLink>
+    </nav>
+    
+    <main>
+      <Routes>
+        <Route path='/' element={<A />} exact />
+        <Route path='/burger' element={<lard />} />
+        <Route path='/' element={<C />} />
+      </Routes>
+     </main>
+   </div>
+</BrowserRouter>
+        
+```
