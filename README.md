@@ -611,63 +611,6 @@ app.listen(port, function () {
 });
 ```
 
-# ☑ Assignment
-
-Create a web service with Express using the following steps.
-
-1. Open your console.
-1. Create a directory named testExpress, and change into that directory
-
-   ```sh
-   mkdir testExpress
-   cd testExpress
-   ```
-
-1. Initialize the directory for use with NPM.
-
-   ```sh
-   npm init -y
-   ```
-
-1. Install the `express` and `cookie-parser` packages.
-
-   ```sh
-   npm install express cookie-parser
-   ```
-
-1. Create a file named `index.js` and paste the example code given above.
-1. Create a directory named `public` and add an index.html file with some basic html to the directory.
-
-   ```sh
-   mkdir public
-   print '<h1>Hello express</h1>' > public/index.html
-   ```
-
-1. Run your web service using node (`node index.js`)
-
-   ```sh
-   node index.js
-   ```
-
-1. Open another console window and use Curl to try out your web service by making requests to the endpoints.
-
-   ```sh
-   curl localhost:8080
-   curl localhost:8080/error
-   curl localhost:8080/store/orem
-   curl -X PUT localhost:8080/st/orem
-   curl -X DELETE localhost:8080/store/orem
-   curl -X POST -c cookies.txt localhost:8080/cookie/express/tj
-   curl -b cookies.txt localhost:8080/cookie
-   ```
-
-1. Develop a mental model in your head about what these commands are doing and how your service is responding. Perhaps creating a [sequence diagram](https://sequencediagram.org/index.html#initialData=C4S2BsFMAIGVIE4DcQGMYCVIEcCukBnYAgKBIENVgB7BaAYVwXDMeYFoA+eZNSALmgBtAAoBVACoBdaAHois2pAC2JAHbVgMBCADmAC2DRqAMziIU6fuQAONgHQ3cwABQByecABUs-kSUAcuTKkG4ANAA6atAuCDhh0HEEAJTQALyciYT2BJBqACYuUQDe0Lg2+eRagnHYjuQIwQQ5NHFBIdAAvsnJANwkbOAAPEPs7DyWAtDFAETllVoz-DNKyjOdJEA) will help clarify the interaction if it is still unclear.
-
-   ![HTTP request](httpRequestSequenceDiagram.jpg)
-
-When you are done executing the above commands copy the output from the console window and paste it into the Canvas assignment.
-
-
 # Express Personal notes
 The method of a fetch is what express middleware to use. Example:
 
