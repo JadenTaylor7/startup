@@ -488,7 +488,7 @@ app.use((req, res, next) => {
 });
 ```
 
-Remember that the order that you add your middleware to the Express app object controls the order that the middleware functions are called. Any middleware that does not call the next function after doing its processing, stops the middleware chain from continuing.
+Remember that the order that you add your middleware to the Express app object controls the order that the middleware functions are called. Any middleware that does not call the next function after doing its processing, **stops the middleware chain from continuing.**
 
 ### Builtin middleware
 
