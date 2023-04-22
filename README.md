@@ -666,3 +666,18 @@ Create a web service with Express using the following steps.
    ![HTTP request](httpRequestSequenceDiagram.jpg)
 
 When you are done executing the above commands copy the output from the console window and paste it into the Canvas assignment.
+
+
+# Express Personal notes
+The method of a fetch is what express middleware to use. Example:
+
+```js
+const r = await fetch('/fav/ringo', {
+  method: 'DELETE'
+  });
+```
+We could need a delete middleware in this case. Like so
+
+```js
+app.delete('/favorite/:id', () => {})
+```
