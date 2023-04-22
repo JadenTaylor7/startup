@@ -203,3 +203,53 @@ HTTP continually evolves in order to increase performance and support new types 
 | 1997 | HTTP1.1 | put/patch/delete/options, persistent connection |
 | 2015 | HTTP2   | multiplex, server push, binary representation   |
 | 2022 | HTTP3   | QUIC for transport protocol, always encrypted   |
+
+
+# Fetch
+
+🔑 **Recommended reading**: [MDN Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+The ability to make HTTP requests from JavaScript is one of the main technologies that changed the web from static content pages (Web 1.0) to one of web applications (Web 2.0) that fully interact with the user. Microsoft introduced the first API for making HTTP requests from JavaScript with the [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest).
+
+Today, the [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is the preferred way to make HTTP requests. The `fetch` function is built into the browser's JavaScript runtime. This means you can call it from JavaScript code running in a browser.
+
+The basic usage of fetch takes a URL and returns a promise. The promise `then` function takes a callback function that is asynchronously called when the requested URL content is obtained. If the returned content is of type `application/json` you can use the `json` function on the response object to convert it to a JavaScript object.
+
+The following example makes a fetch request to get and display an inspirational quote.
+
+```js
+fetch('https://api.quotable.io/random')
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
+```
+
+**Response**
+
+```js
+{
+  content: 'Never put off till tomorrow what you can do today.',
+  author: 'Thomas Jefferson',
+};
+```
+
+To do a POST request you populate the options parameter with the HTTP method and headers.
+
+```js
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'test title',
+    body: 'test body',
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
+```
