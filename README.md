@@ -1363,8 +1363,11 @@ wss.on('connection', (ws) => {
 
 ## Get, delete, post personal notes
 
-For the request [GET]/fav/george what is logged? Answer, paul george john
-Why: because we are using a GET, so only the .use and .get will be called. .put won't be called.
+For the request [GET]/fav/george what is logged? 
+
+Answer: paul george john
+
+Why: because we are using a GET, so only the .use and .get will be called. .put won't be called. .use is global, meaning all types will call .use
 ```js
 app.use(function (req, res, next) {
   console.log('paul');
