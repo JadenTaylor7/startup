@@ -1709,3 +1709,14 @@ property_type: 'Condo',
 beds: 1
 }
 ```
+
+
+## MongoDB Personal Notes
+
+What document matches this MongoDB query? 
+
+Answer: { name: "Walke", score: -55 }
+
+```js
+{ $or: [{name:/J.*/}, {score: {$lt:3}}]}
+```
