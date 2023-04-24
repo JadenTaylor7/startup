@@ -1710,13 +1710,76 @@ beds: 1
 }
 ```
 
+# JavaScript regular expressions
 
-## MongoDB Personal Notes
+Regular expression support is built right into JavaScript. If you are not familiar with regular expressions, you can think of them as textual pattern matchers. You use a regular expression to find text in a string so that you can replace it, or simply to know that it exists.
+
+You can create a regular expression using the class constructor or a regular expression literal.
+
+```js
+const objRegex = new RegExp('ab*', 'i');
+const literalRegex = /ab*/i;
+```
+
+The `string` class has several functions that accept regular expressions. This includes `match`, `replace`, `search`, and `split`. For a quick test to see if there is a match you can use the regular expression object's `test` function.
+
+```js
+const petRegex = /(dog)|(cat)|(bird)/gim;
+const text = 'Both cats and dogs are pets, but not rocks.';
+
+text.match(petRegex);
+// RETURNS: ['cat', 'dog']
+
+text.replace(petRegex, 'animal');
+// RETURNS: Both animals and animals are pets, but not rocks.
+
+petRegex.test(text);
+// RETURNS: true
+```
+
+## Regular Expressions Personal Notes
+
+What: A way for finding out if specific text is in a string.
+
+Template: const variableName = /expression/flag
+
+Popular flags:
+
+g = global, meaning look for every instance of the expression instead of just once
+
+i = incase sensitive, meaning don’t care whether it’s capital or lowercase
+
+m = multiline, meaning will search on all lines passed in, instead of just the first
+Example:
+
+```js
+const someRegEx = /the/gi;
+const shortStory = “The bird just yeeted itself on the ground.”;
+console.log(shortStory.match(someRegEx)); //returns [‘The’, ‘the’]
+```
+Can search for multiple words at a time. Another Example:
+```js
+const someRegularExpression = /(lol)|(miami)|(heat)|(urmom)|(happy)|(huh)|(lard)/gi;
+const aSentence = "something that makes urmom happy and lol would be visiting Disneyland in the heat of the day.";
+console.log(aSentence.match(someRegularExpression));
+```
+Tip: Can use the ? operator to specify an optional character. The ? is only attached to the letter that comes right before it. Example:
+```js
+const mainlyE = /el?t?/gi;
+const shortStory = "The bird just yeeted itself on the ground.";
+console.log(shortStory.match(mainlyE)); #returns [‘e’, ‘e’, ‘et’, ‘e’, ‘el’, ‘e’] 
+```
+
+## Regular Expression Quiz
 
 What document matches this MongoDB query? 
 
 Answer: { name: "Walke", score: -55 }
 
+Why: Because it has to start with a capital letter (the J), and the score has to be less than 3 ($lt:3)
+
 ```js
 { $or: [{name:/J.*/}, {score: {$lt:3}}]}
 ```
+
+
