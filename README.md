@@ -1776,7 +1776,7 @@ What document matches this MongoDB query?
 
 Answer: { name: "Walke", score: -55 }
 
-Why: Because it has to start with a capital letter (the J), and the score has to be less than 3 ($lt:3)
+Why: Because it has to start with a capital J (name:/J), or ($or:) the score has to be less than 3 ($lt:3)
 
 ```js
 { $or: [{name:/J.*/}, {score: {$lt:3}}]}
