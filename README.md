@@ -1358,3 +1358,32 @@ wss.on('connection', (ws) => {
   ws.send('Hello webSocket');
 });
 ```
+
+
+
+## Get, delete, post personal notes
+For the request [GET]/fav/george what is logged? Answer, paul george john
+Why: because we are using a GET, so only the .use and .get will be called. .put won't be called.
+```js
+app.use(function (req, res, next) {
+  console.log('paul');
+  next();
+});
+ 
+app.put('/fav/:person', (req, res, next) => {
+  console.log('ringo');
+  next();
+});
+
+app.get('/fav/:person', (req, res, next) => {
+  console.log(req.params.person);
+  next();
+});
+
+app.get('/*', (req, res, next) => {
+  console.log('john');
+  next();
+});
+
+app.use((_req, res) => res.send());
+```
