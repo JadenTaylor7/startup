@@ -1362,6 +1362,7 @@ wss.on('connection', (ws) => {
 
 
 ## Get, delete, post personal notes
+
 For the request [GET]/fav/george what is logged? Answer, paul george john
 Why: because we are using a GET, so only the .use and .get will be called. .put won't be called.
 ```js
@@ -1386,4 +1387,30 @@ app.get('/*', (req, res, next) => {
 });
 
 app.use((_req, res) => res.send());
+```
+
+
+## Websocket personal notes
+
+Given the following code what will console.log print?
+Answer: Client:Server:Hello
+
+```js
+// Executed on server:
+const { WebSocketServer } = require('ws');
+const wss = new WebSocket Server({ port: 9900 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const msg = String.fromCharCode( ...data);
+    ws.send(`Server:${msg}`);
+  });
+});
+
+// Executed on browser:
+const socket = new WebSocket('ws://localhost:9900');
+socket.onmessage = (event) => {
+  console.log(`Client:${event.data}`);
+};
+socket.send('Hello');
 ```
