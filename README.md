@@ -1761,13 +1761,13 @@ Can search for multiple words at a time. Another Example:
 ```js
 const someRegularExpression = /(lol)|(miami)|(heat)|(urmom)|(happy)|(huh)|(lard)/gi;
 const aSentence = "something that makes urmom happy and lol would be visiting Disneyland in the heat of the day.";
-console.log(aSentence.match(someRegularExpression));
+console.log(aSentence.match(someRegularExpression)); //returns [ ‘urmom’, ‘happy’, ‘lol’, ‘heat’] 
 ```
 Tip: Can use the ? operator to specify an optional character. The ? is only attached to the letter that comes right before it. Example:
 ```js
 const mainlyE = /el?t?/gi;
 const shortStory = "The bird just yeeted itself on the ground.";
-console.log(shortStory.match(mainlyE)); #returns [‘e’, ‘e’, ‘et’, ‘e’, ‘el’, ‘e’] 
+console.log(shortStory.match(mainlyE)); //returns [‘e’, ‘e’, ‘et’, ‘e’, ‘el’, ‘e’] 
 ```
 
 ## Regular Expression Quiz
